@@ -29,7 +29,7 @@
 <!-- Buttons top end -->
 
 <h2>Description</h2>
-<p>The <b>java.lang.Process.exitValue()</b> method returns an array containing all of the <b>elements</b> in this <b>deque</b> in proper sequence.</p>
+<p>The <b>java.lang.Process.exitValue()</b> method returns the exit value for the subprocess.</p>
 <h2>Declaration</h2>
 <p>Following is the declaration for <b>java.lang.Process.exitValue()</b> method</p>
 <pre class="prettyprint">
@@ -40,11 +40,12 @@ public abstract int exitValue()
 <li><p>NA</p></li>
 </ul>
 <h2>Return Value</h2>
-<p>This method returns an array containing all of the elements in this deque.</p>
+<p>This method returns the exit value of the subprocess represented by the <i>Process</i> object where 0 indicates the normal termination.</p>
 <h2>Exception</h2>
 <ul class="list">
-<li><p>NA</p></li>
+<li><p><b>IllegalThreadStateException</b> -- if the subprocess represented by the <i>Process</i> object has not yet terminated.</p></li>
 </ul>
+
 <h2>Example</h2>
 <p>The following example shows the usage of java.lang.Process.exitValue() method.</p>
 <pre class="prettyprint">
