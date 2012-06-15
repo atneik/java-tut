@@ -1,0 +1,108 @@
+<!doctype html> 
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Java.lang.Process.getInputStream() Method Example</title>
+<base href="http://www.tutorialspoint.com" />
+<link rel="stylesheet" type="text/css" href="/scripts/style.css" />
+<link rel="stylesheet" type="text/css" href="/scripts/prettify.css" />
+<script type="text/javascript" src="/scripts/prettify.js"></script>
+</head>
+
+<body onload="prettyPrint()">
+
+<div id="middlecol">
+<!-- PRINTING STARTS HERE -->
+<div class="content">
+<h1>Java.lang.Process.getInputStream() Method</h1>
+<hr />
+<div class="pre-btn">
+<a href="/java/lang/process_getErrorStream.htm">Previous Page</a>
+</div>
+<div class="nxt-btn">
+<a href="/java/lang/process_getOutputStream.htm">Next Page</a>
+</div>
+<div class="clearer"></div>
+<hr />
+
+<!-- Buttons top end -->
+
+<h2>Description</h2>
+<p>The <b>java.lang.Process.getInputStream()</b> method gets the input stream from the subprocess. The data in the stream is fed by the <b>standard output</b> (stdout) stream of the subprocess represented by the <i>Process</i> object</p>
+<h2>Declaration</h2>
+<p>Following is the declaration for <b>Java.lang.Process.getInputStream()</b> method</p>
+<pre class="prettyprint">
+public abstract InputStream getInputStream()
+</pre>
+<h2>Parameters</h2>
+<ul class="list">
+<li><p>NA</p></li>
+</ul>
+<h2>Return Value</h2>
+<p>This method returns the input stream connected to the normal output of the subprocess.</p>
+<h2>Exception</h2>
+<ul class="list">
+<li><p>NA</p></li>
+</ul>
+<h2>Example</h2>
+<p>The following example shows the usage of java.lang.Process.getInputStream() method.</p>
+<pre class="prettyprint">
+package com.tutorialspoint;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class MainClass {
+    public static void main(String[] args) throws Exception{
+        
+        //get a runtime to exec the process in a different thread.
+        Runtime r = Runtime.getRuntime();
+        
+        //for windows call 'cmd' instead of 'sh' with different set of args.
+        String[] nargs = { "sh", "-c" ,"ls -l" };
+        
+        //exec the process with 'nargs' as arguments.
+        Process p = r.exec(nargs);
+        
+        //A buffered reader for the process. Buffered is recommended.
+        BufferedReader is = new BufferedReader(new 
+           InputStreamReader(p.getInputStream()));
+        
+        //display all the lines.
+        String line;
+        while ((line = is.readLine()) != null)
+            System.out.println(line);
+    }
+    
+}   
+</pre>
+<p>Let us compile and run the above program, this will produce the following result:</p>
+<pre class="prettyprint">
+total 16
+-rw-r--r--  1 user  staff  1054 Jun 15 13:11 MainClass.class
+-rw-r--r--@ 1 user  staff   993 Jun 15 13:11 MainClass.java
+</pre>
+
+
+
+<!-- Buttons bottom start -->
+<br>
+<hr />
+<div class="pre-btn">
+<a href="/java/util/arraydeque_size.htm">Previous Page</a>
+</div>
+<div class="print-btn">
+<a href="/cgi-bin/printpage.cgi" target="_blank">Print Version</a>
+</div>
+<div class="nxt-btn">
+<a href="/java/util/java_util_arraydeque.htm">Next Page</a>
+</div>
+<div class="clearer"></div>
+<hr />
+<!-- PRINTING ENDS HERE -->
+</div>
+</div>
+</body>
+</html>
+ 
