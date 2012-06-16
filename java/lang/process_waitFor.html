@@ -50,40 +50,43 @@ public abstract int waitFor()
 <pre class="prettyprint">
 package com.tutorialspoint;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-
-public class ArrayDequeDemo {
-   public static void main(String[] args) {
-      
-    // create an empty array deque with an initial capacity
-     Deque&lt;Integer&gt; deque = new ArrayDeque&lt;Integer&gt;(8);
-
-    // use add() method to add elements in the deque
-      deque.add(15);
-      deque.add(20);
-      deque.add(25);
-      deque.add(18);
-	  
-    // let us print all the elements available in deque
-    for (Integer number : deque) {
-       System.out.println("Number = " + number);
-    } 
-
-    // printing the array length of elements added above
-    Object[] ob = deque.toArray();
-    System.out.println("\n Array Size : " + ob.length);   
-  }
-}   
+public class MainClass {
+    public static void main(String args[]) {
+        Runtime r = Runtime.getRuntime();
+        Process p = null;
+        
+        //command for shell code execution 
+        String cmd[] = {"sh","-c","for ((i = 0; i <= 10000; i++)); 
+           do echo $i; done"};
+        
+        try {
+        
+        //exec subprocess with no waitFor
+            p = r.exec(cmd);
+        } catch (Exception e) {
+            System.out.println("error executing " + cmd[0]);
+        }
+        System.out.println("did not wait for subprocess");
+        
+        
+        try {
+        //exec subprocess with waitFor
+            p = r.exec(cmd);
+            System.out.println("waiting..");
+            p.waitFor();
+        } catch (Exception e) {
+            System.out.println("error executing " + cmd[0]);
+        }
+        System.out.println("waited for subprocess");
+    }
+}
 </pre>
 <p>Let us compile and run the above program, this will produce the following result:</p>
 <pre class="prettyprint">
-Number = 15
-Number = 20
-Number = 25
-Number = 18
-Array Size : 4</pre>
-
+did not wait for subprocess
+waiting..
+waited for subprocess
+ </pre>
 
 
 <!-- Buttons bottom start -->
