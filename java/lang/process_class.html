@@ -1,0 +1,75 @@
+<!doctype html> 
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Java.lang.Process Class</title>
+<base href="http://www.tutorialspoint.com" />
+<link rel="stylesheet" type="text/css" href="/scripts/style.css" />
+<link rel="stylesheet" type="text/css" href="/scripts/prettify.css" />
+<script type="text/javascript" src="/scripts/prettify.js"></script>
+</head>
+
+<body onload="prettyPrint()">
+<div id="middlecol">
+<!-- PRINTING STARTS HERE -->
+<div class="content">
+<h1>Java.lang.Process Class</h1>
+</div>
+<div class="pre-btn">
+<a href="/java/lang/process_waitFor.htm">Previous Page</a>
+</div>
+<div class="nxt-btn">
+<a href="/java/lang/process_destroy.htm">Next Page</a>
+</div>
+<div class="clearer"></div>
+<hr />
+<h2>Introduction</h2>
+<p>The <b>java.lang.Process</b> class provides resizable-array and implements the <b>Deque</b> interface. Following are the important points about Array Deques:</p>
+<ul class="list">
+<li><p>Array deques have no capacity restrictions so they grow as necessary to support usage.</p></li>
+<li><p>They are not thread-safe; in the absence of external synchronization.</p></li>
+<li><p>They do not support concurrent access by multiple threads. </p></li>
+<li><p>Null elements are prohibited in the array deques.</p></li>
+<li><p>They are faster than Stack  and LinkedList.</p></li>
+</ul>
+<p>This class and its iterator implement all of the optional methods of the <b>Collection</b> and <b>Iterator</b> interfaces.</p>
+<h2>Class declaration</h2>
+<p>Following is the declaration for <b>java.lang.Process</b> class:</p>
+<pre class="prettyprint">
+public abstract class Process
+   extends Object
+</pre>
+<h2>Class constructors</h2>
+<table class="src">
+<tr><th style="width:5%">S.N.</th><th>Constructor &amp; Description</th></tr>
+<tr><td>1</td><td><b>Process()</b><br>This constructor is used to create an empty array deque with an initial capacity sufficient to hold 16 elements.</td></tr>
+
+</table>
+<h2>Class methods</h2>
+<table class="src">
+<tr><th style="width:5%">S.N.</th><th>Method &amp; Description</th></tr>
+<tr><td>1</td><td><a href="/java/lang/process_destroy.htm">abstract void destroy() </a><br>This method  kills the subprocess.</td></tr>
+<tr><td>2</td><td><a href="/java/lang/process_exitValue.htm">abstract int exitValue()</a><br>This method returns the exit value for the subprocess.</td></tr>
+<tr><td>3</td><td><a href="/java/lang/process_getErrorStream.htm">abstract InputStream getErrorStream()</a><br>This method gets the error stream of the subprocess.</td></tr>
+<tr><td>4</td><td><a href="/java/lang/process_getInputStream.htm">abstract InputStream getInputStream()</a><br>This method gets the input stream of the subprocess.</td></tr>
+<tr><td>5</td><td><a href="/java/lang/process_getOutputStream.htm">abstract OutputStream getOutputStream()</a><br>This method gets the output stream of the subprocess.</td></tr>
+<tr><td>6</td><td><a href="/java/lang/process_waitFor.htm">abstract int	waitFor()</a><br>This method causes the current thread to wait,until the process represented by the <i>Process</i> object has terminated.</td></tr>
+</table>
+<br>
+<hr />
+<div class="pre-btn">
+<a href="/java/lang/process_waitFor.htm">Previous Page</a>
+</div>
+<div class="print-btn">
+<a href="/cgi-bin/printpage.cgi" target="_blank">Print Version</a>
+</div>
+<div class="nxt-btn">
+<a href="/java/lang/process_destroy.htm">Next Page</a>
+</div>
+<div class="clearer"></div>
+<hr />
+</div>
+</body>
+</html>
+ 
