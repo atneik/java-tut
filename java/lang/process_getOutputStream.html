@@ -50,40 +50,30 @@ public abstract OutputStream getOutputStream()
 <pre class="prettyprint">
 package com.tutorialspoint;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
+import java.io.OutputStream;
 
-public class ArrayDequeDemo {
-   public static void main(String[] args) {
-      
-    // create an empty array deque with an initial capacity
-     Deque&lt;Integer&gt; deque = new ArrayDeque&lt;Integer&gt;(8);
-
-    // use add() method to add elements in the deque
-      deque.add(15);
-      deque.add(20);
-      deque.add(25);
-      deque.add(18);
-	  
-    // let us print all the elements available in deque
-    for (Integer number : deque) {
-       System.out.println("Number = " + number);
-    } 
-
-    // printing the array length of elements added above
-    Object[] ob = deque.toArray();
-    System.out.println("\n Array Size : " + ob.length);   
-  }
-}   
+public class MainClass {
+    public static void main(String[] argv) throws Exception {
+        
+        //preparing the shell command; for windows use 'cmd' 
+        String[] command = {"sh", "-c", "cat > test.txt"};
+        
+        //get a subprocess
+        Process child = Runtime.getRuntime().exec(command);
+        
+        //create an outputStream to send data streams to stdin of the process 
+        OutputStream out = child.getOutputStream();
+        
+        //here we are sending
+        out.write("Tutorialspoint.com".getBytes());
+        out.close();
+    }
+}  
 </pre>
-<p>Let us compile and run the above program, this will produce the following result:</p>
-<pre class="prettyprint">
-Number = 15
-Number = 20
-Number = 25
-Number = 18
-Array Size : 4</pre>
-
+<p>Compile and run the above program, this will create a file 'test.txt' containing: Tutorialspoint.com</p>
+ 
+ 
+ <p><i>Note: Do not confuse this with FileOutputStream. The only perpose of using cat as a process and text.txt is to actually see what is being send to the Process.</i></p>
 
 
 <!-- Buttons bottom start -->
