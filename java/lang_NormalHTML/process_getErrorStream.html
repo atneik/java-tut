@@ -3,8 +3,7 @@
 
 <head>
 <meta charset="utf-8">
-<title>Java.lang.Process.destroy() Method Example</title>
-<base href="http://www.tutorialspoint.com" />
+<title>Java.lang.Process.getErrorStream() Method Example</title>
 <link rel="stylesheet" type="text/css" href="/scripts/style.css" />
 <link rel="stylesheet" type="text/css" href="/scripts/prettify.css" />
 <script type="text/javascript" src="/scripts/prettify.js"></script>
@@ -15,13 +14,13 @@
 <div id="middlecol">
 <!-- PRINTING STARTS HERE -->
 <div class="content">
-<h1>Java.lang.Process.destroy() Method</h1>
+<h1>Java.lang.Process.getErrorStream() Method</h1>
 <hr />
 <div class="pre-btn">
-<a href="/java/lang/process_class.htm">Previous Page</a>
+<a href="/java/lang/process_exitValue.html">Previous Page</a>
 </div>
 <div class="nxt-btn">
-<a href="/java/lang/process_exitValue.htm">Next Page</a>
+<a href="/java/lang/process_getInputStream.html">Next Page</a>
 </div>
 <div class="clearer"></div>
 <hr />
@@ -29,24 +28,24 @@
 <!-- Buttons top end -->
 
 <h2>Description</h2>
-<p>The <b>java.lang.Process.destroy()</b> method forcibly terminates the subprocess represented by the <i>Process</i> object.</p>
+<p>The <b>java.lang.Process.getErrorStream()</b> method gets the error stream of the subprocess. The data in the stream is fed by the <b>error output</b> stream of the subprocess represented by the <i>Process</i> object</p>
 <h2>Declaration</h2>
-<p>Following is the declaration for <b>java.lang.Process.destroy()</b> method</p>
+<p>Following is the declaration for <b>java.lang.Process.getErrorStream()</b> method</p>
 <pre class="prettyprint">
-public abstract void destroy()
+public abstract InputStream getErrorStream()
 </pre>
 <h2>Parameters</h2>
 <ul class="list">
 <li><p>NA</p></li>
 </ul>
 <h2>Return Value</h2>
-<p>This method does not return any value.</p>
+<p>This method returns the input stream connected to the error stream of the subprocess.</p>
 <h2>Exception</h2>
 <ul class="list">
 <li><p>NA</p></li>
 </ul>
 <h2>Example</h2>
-<p>The following example shows the usage of java.lang.Process.destroy() method.</p>
+<p>The following example shows the usage of java.lang.Process.getErrorStream() method.</p>
 <pre class="prettyprint">
 package com.tutorialspoint;
 
@@ -90,13 +89,13 @@ Array Size : 4</pre>
 <br>
 <hr />
 <div class="pre-btn">
-<a href="/java/lang/process_class.htm">Previous Page</a>
+<a href="/java/lang/process_exitValue.html">Previous Page</a>
 </div>
 <div class="print-btn">
 <a href="/cgi-bin/printpage.cgi" target="_blank">Print Version</a>
 </div>
 <div class="nxt-btn">
-<a href="/java/lang/process_exitValue.htm">Next Page</a>
+<a href="/java/lang/process_getInputStream.html">Next Page</a>
 </div>
 <div class="clearer"></div>
 <hr />
