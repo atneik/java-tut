@@ -50,40 +50,28 @@ public abstract InputStream getErrorStream()
 <pre class="prettyprint">
 package com.tutorialspoint;
 
-import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.BufferedReader;
 
 public class MainClass {
-    public static void main(String[] args) throws Exception{
-        
-        //get a runtime to exec the process in a different thread.
-        Runtime r = Runtime.getRuntime();
-        
-        //for windows call 'cmd' instead of 'sh' with different set of args.
-        String[] nargs = { "sh", "-c" ,"ls -l" };
-        
-        //exec the process with 'nargs' as arguments.
-        Process p = r.exec(nargs);
-        
-        //A buffered reader for the process. Buffered is recommended.
-        BufferedReader is = new BufferedReader(new 
-           InputStreamReader(p.getInputStream()));
-        
-        //display all the lines.
-        String line;
-        while ((line = is.readLine()) != null)
-            System.out.println(line);
-    }
     
-}   
+    static public void main(String[] args) throws Exception
+    {
+        Process p = Runtime.getRuntime().exec("ls xxxx");
+        BufferedReader br = new BufferedReader(new
+                                               InputStreamReader(p.getErrorStream()));
+        String line;
+        while((line = br.readLine()) != null) {
+            System.out.println("Read from error stream: \"" + line + "\"");
+        }
+    }
+}
+   
 </pre>
 <p>Let us compile and run the above program, this will produce the following result:</p>
 <pre class="prettyprint">
-Number = 15
-Number = 20
-Number = 25
-Number = 18
-Array Size : 4</pre>
+Read from error stream: "ls: xxxx: No such file or directory"
+</pre>
 
 
 
