@@ -2,7 +2,7 @@ public class MainClass {
     public static void main(String args[]) {
         Runtime r = Runtime.getRuntime();
         Process p = null;
-        String cmd[] = {"ps","kill"};
+        String cmd[] = {"ls","javac MainClass"};
         try {
             p = r.exec(cmd[0]);
             p.waitFor();
@@ -24,7 +24,7 @@ public class MainClass {
 /*
  output:
  
- ps returned 0
- kill returned 1
+ ls returned 0
+ javac MainClass returned 1
  
 */

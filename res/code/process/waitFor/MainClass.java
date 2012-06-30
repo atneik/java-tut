@@ -4,7 +4,10 @@ public class MainClass {
         Process p = null;
         
         //command for shell code execution 
-        String cmd[] = {"sh","-c","for ((i = 0; i <= 10000; i++)); do echo $i; done"};
+        String cmd[] = {"sh","-c","sleep 5"};
+        
+        long start = System.currentTimeMillis();
+        
         try {
         
         //exec subprocess with no waitFor
@@ -12,9 +15,11 @@ public class MainClass {
         } catch (Exception e) {
             System.out.println("error executing " + cmd[0]);
         }
+        long timeElapsed = System.currentTimeMillis() - start;
+        System.out.println("Time elasped: " + timeElapsed);
         System.out.println("did not wait for subprocess");
         
-        
+        start = System.currentTimeMillis();
         try {
         //exec subprocess with waitFor
             p = r.exec(cmd);
@@ -23,6 +28,10 @@ public class MainClass {
         } catch (Exception e) {
             System.out.println("error executing " + cmd[0]);
         }
+        
+        timeElapsed = System.currentTimeMillis() - start;
+        System.out.println("Time elasped: " + timeElapsed);
+
         System.out.println("waited for subprocess");
     }
 }
@@ -30,8 +39,10 @@ public class MainClass {
 /*
  output:
  
+ Time elasped: 4
  did not wait for subprocess
  waiting..
+ Time elasped: 5002
  waited for subprocess
  
 */

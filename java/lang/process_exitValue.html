@@ -55,7 +55,7 @@ public class MainClass {
     public static void main(String args[]) {
         Runtime r = Runtime.getRuntime();
         Process p = null;
-        String cmd[] = {"ps","kill"};
+        String cmd[] = {"ls","javac MainClass"};
         try {
             p = r.exec(cmd[0]);
             p.waitFor();
@@ -76,8 +76,8 @@ public class MainClass {
 </pre>
 <p>Let us compile and run the above program, this will produce the following result:</p>
 <pre class="prettyprint">
-ps returned 0
-kill returned 1
+ls returned 0
+javac MainClass returned 1
 </pre>
 
 
