@@ -52,26 +52,41 @@ public abstract int exitValue()
 package com.tutorialspoint;
 
 public class MainClass {
-    public static void main(String args[]) {
-        Runtime r = Runtime.getRuntime();
-        Process p = null;
-        String cmd[] = {"ls","javac MainClass"};
-        try {
-            p = r.exec(cmd[0]);
-            p.waitFor();
-        } catch (Exception e) {
-            System.out.println("error executing " + cmd[0]);
-        }
-        System.out.println(cmd[0] + " returned " + p.exitValue());
+   public static void main(String args[]) {
+      //get a runtime to exec the process in a different thread.
+      Runtime r = Runtime.getRuntime();
+
+      Process p = null;
+      String cmd[] = {"ls","javac MainClass"};
+
+      try{
+
+	 //exec the process with waitFor and cmd "ls"
+         p = r.exec(cmd[0]);
+         p.waitFor();
+
+      } 
+      catch (Exception e){
+         System.out.println("error executing " + cmd[0]);
+      }
+
+      //displaying the exit value 	
+      System.out.println(cmd[0] + " returned " + p.exitValue());
         
-        try {
-            p = r.exec(cmd[1]);
-            p.waitFor();
-        } catch (Exception e) {
-            System.out.println("error executing " + cmd[1]);
-        }
-        System.out.println(cmd[1] + " returned " + p.exitValue());
-    }
+      try{
+
+	 //exec the process with waitFor and shell cmd "javac MainClass"
+         p = r.exec(cmd[1]);
+         p.waitFor();
+
+      } 
+      catch (Exception e) {
+         System.out.println("error executing " + cmd[1]);
+      }
+
+      //displaying the exit value
+      System.out.println(cmd[1] + " returned " + p.exitValue());
+   }
 }
 </pre>
 <p>Let us compile and run the above program, this will produce the following result:</p>

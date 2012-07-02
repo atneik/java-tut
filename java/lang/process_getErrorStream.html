@@ -55,16 +55,21 @@ import java.io.BufferedReader;
 
 public class MainClass {
     
-    static public void main(String[] args) throws Exception
-    {
-        Process p = Runtime.getRuntime().exec("ls xxxx");
-        BufferedReader br = new BufferedReader(new
-                                               InputStreamReader(p.getErrorStream()));
-        String line;
-        while((line = br.readLine()) != null) {
-            System.out.println("Read from error stream: \"" + line + "\"");
-        }
-    }
+   static public void main(String[] args) throws Exception
+   {
+      //get a runtime to exec the process in a different thread.
+      Process p = Runtime.getRuntime().exec("ls xxxx");
+
+      //A buffered reader for the process. Buffered is recommended.
+      BufferedReader br = new BufferedReader(new 
+	 InputStreamReader(p.getErrorStream()));
+
+      //displaying the data from the output stream
+      String line;
+      while((line = br.readLine()) != null) {
+         System.out.println("Read from error stream: \"" + line + "\"");
+      }
+   }
 }
    
 </pre>

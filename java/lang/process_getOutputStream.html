@@ -53,21 +53,21 @@ package com.tutorialspoint;
 import java.io.OutputStream;
 
 public class MainClass {
-    public static void main(String[] argv) throws Exception {
+   public static void main(String[] argv) throws Exception {
         
-        //preparing the shell command; for windows use 'cmd' 
-        String[] command = {"sh", "-c", "cat > test.txt"};
+      //preparing the shell command; for windows use 'cmd' 
+      String[] command = {"sh", "-c", "cat > test.txt"};
         
-        //get a subprocess
-        Process child = Runtime.getRuntime().exec(command);
+      //get a subprocess
+      Process child = Runtime.getRuntime().exec(command);
         
-        //create an outputStream to send data streams to stdin of the process 
-        OutputStream out = child.getOutputStream();
+      //create an outputStream to send data streams to stdin of the process 
+      OutputStream out = child.getOutputStream();
         
-        //here we are sending
-        out.write("Tutorialspoint.com".getBytes());
-        out.close();
-    }
+      //here we are sending
+      out.write("Tutorialspoint.com".getBytes());
+      out.close();
+   }
 }  
 </pre>
 <p>Compile and run the above program, this will create a file 'test.txt' containing: Tutorialspoint.com</p>

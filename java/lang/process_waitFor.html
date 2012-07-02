@@ -51,41 +51,47 @@ public abstract int waitFor()
 package com.tutorialspoint;
 
 public class MainClass {
-    public static void main(String args[]) {
-        Runtime r = Runtime.getRuntime();
-        Process p = null;
+   public static void main(String args[]) {
+      
+      //get a runtime to exec the process in a different thread.	
+      Runtime r = Runtime.getRuntime();
+      Process p = null;
         
-        //command for shell code execution 
-        String cmd[] = {"sh","-c","sleep 5"};
+      //command for shell code execution 
+      String cmd[] = {"sh","-c","sleep 5"};
+      
+      //current UTC time in MilliSeconds  
+      long start = System.currentTimeMillis();
         
-        long start = System.currentTimeMillis();
+      try{
         
-        try {
+         //exec subprocess with no waitFor
+         p = r.exec(cmd);
+      } 
+      catch (Exception e) {
+         System.out.println("error executing " + cmd[0]);
+      }
+      
+      long timeElapsed = System.currentTimeMillis() - start;
+      System.out.println("Time elasped: " + timeElapsed);
+      System.out.println("did not wait for subprocess");
         
-        //exec subprocess with no waitFor
-            p = r.exec(cmd);
-        } catch (Exception e) {
-            System.out.println("error executing " + cmd[0]);
-        }
-        long timeElapsed = System.currentTimeMillis() - start;
-        System.out.println("Time elasped: " + timeElapsed);
-        System.out.println("did not wait for subprocess");
+      start = System.currentTimeMillis();
+      try{
+         //exec subprocess with waitFor
+         p = r.exec(cmd);
+         System.out.println("waiting..");
+         p.waitFor();
+      } 
+      catch (Exception e) {
+         System.out.println("error executing " + cmd[0]);
+      }
         
-        start = System.currentTimeMillis();
-        try {
-        //exec subprocess with waitFor
-            p = r.exec(cmd);
-            System.out.println("waiting..");
-            p.waitFor();
-        } catch (Exception e) {
-            System.out.println("error executing " + cmd[0]);
-        }
-        
-        timeElapsed = System.currentTimeMillis() - start;
-        System.out.println("Time elasped: " + timeElapsed);
+      timeElapsed = System.currentTimeMillis() - start;
+      System.out.println("Time elasped: " + timeElapsed);
 
-        System.out.println("waited for subprocess");
-    }
+      System.out.println("waited for subprocess");
+   }
 }
 </pre>
 <p>Let us compile and run the above program, this will a similar result:</p>
